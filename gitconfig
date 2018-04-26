@@ -1,0 +1,50 @@
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore_global
+	autocrlf = input
+[user]
+	name = Pavel Borzenkov
+	email = pavel.borzenkov@gmail.com
+	signingkey = 0x9E5C118105F2B8C4
+[color]
+	ui = auto
+[merge]
+	log = true
+	tool = vimdiff
+[sendemail]
+	smtpserver = smtp.corp.acronis.com
+	smtpencryption = tls
+	smtpuser = pavel.borzenkov@acronis.com
+	smtpserverport = 25
+	envelopesender = auto
+	aliasfiletype = mutt
+	aliasesfile = ~/.aliases
+[alias]
+	st = status -uno
+	root = !pwd
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	unpushed = log --branches --not --remotes --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	up = !git pull --rebase --prune $@ && git submodule update --init --recursive
+	wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
+	change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ $`echo $VAR` = \\\"$OLD\\\" ]]; then export $VAR=\\\"$NEW\\\"; fi\" $@; }; f "
+	backport-diff = !sh git-backport-diff
+	compile-check = !sh git-compile-check
+	clean = clean -e '**/.vagrant'
+	prstash = "!f() { git fetch $1 refs/pull-requests/$2/from:$3; } ; f"
+
+[format]
+	signoff = true
+[hub]
+	protocol = ssh
+[log]
+	date = local
+[push]
+	default = simple
+[rerere]
+	enabled = 1
+[github]
+	user = pborzenkov
+[credential]
+	helper = osxkeychain
+[include]
+	path = ~/.gitconfig.local

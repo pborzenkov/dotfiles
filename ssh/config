@@ -1,0 +1,23 @@
+Host *.eng.sw.ru *.qa.sw.ru
+	TCPKeepAlive yes
+	ServerAliveInterval 30
+	ServerAliveCountMax 5
+
+Host pstorage.eng.sw.ru
+	User pborzenkov
+	ForwardAgent yes
+
+Host vz7.esxi.pbor ubuntu.esxi.pbor salt.stg.corp.acronis.com dashboard.stg.corp.acronis.com
+	User pbor
+	ForwardAgent yes
+
+Host gerrit.cloudlinux.com
+	KexAlgorithms diffie-hellman-group14-sha1,diffie-hellman-group1-sha1
+
+Host nwatch.local
+	User root
+
+Match all
+	KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256
+	Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
+	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512,hmac-sha2-256,umac-128@openssh.com
