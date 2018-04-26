@@ -179,7 +179,7 @@ set autoread
 
 set fillchars+=vert:│
 
-set spelllang=en_gb,ru
+set spelllang=en_gb
 autocmd FileType mail,gitcommit,tex,text,markdown setlocal spell
 " autocmd FileType c,go,python setlocal spell
 
