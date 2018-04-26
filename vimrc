@@ -181,6 +181,7 @@ set fillchars+=vert:│
 
 set spelllang=en_gb
 autocmd FileType mail,gitcommit,tex,text,markdown setlocal spell
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 " autocmd FileType c,go,python setlocal spell
 
 set backspace=2
