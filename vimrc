@@ -166,6 +166,9 @@ nnoremap <Leader>b :Buffers<cr>
 nnoremap <Leader>r :Rg<cr>
 " }}}2
 Plug 'google/vim-jsonnet'
+" {{{2
+let g:jsonnet_fmt_options = '-n 4'
+" }}}2
 call plug#end()
 " }}}1
 
