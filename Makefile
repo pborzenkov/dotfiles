@@ -37,6 +37,7 @@ DOTFILES=Rprofile \
 .PHONY: dotfiles
 dotfiles:
 	@echo "Linking dotfiles..."
+	@chmod 600 $(MAKEFILE_DIR)/ssh/config
 	@- $(foreach DOTFILE,$(DOTFILES), \
 		$(eval source = $(word 1,$(subst :, ,$(DOTFILE)))) \
 		$(eval target = $(word 2,$(subst :, ,$(DOTFILE)))) \
