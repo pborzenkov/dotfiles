@@ -61,7 +61,8 @@ endif
 
 .PHONY: shellcheck
 shellcheck: ## Runs shellcheck tests on the scripts.
-	docker run --rm -i $(DOCKER_FLAGS) \
+	@echo "Running shellcheck..."
+	@docker run --rm -i $(DOCKER_FLAGS) \
 		--name df-shellcheck \
 		-v $(MAKEFILE_DIR):/usr/src:ro \
 		--workdir /usr/src \
