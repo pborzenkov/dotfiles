@@ -1,19 +1,7 @@
-zstyle ':completion:*' completer _expand _complete _approximate
-zstyle ':completion:*' expand prefix suffix
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-suffixes true
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|[._-/]=* r:|=*' 'l:|=* r:|=*'
-zstyle ':completion:*' menu select=0
-zstyle ':completion:*' original true
-zstyle ':completion:*' preserve-prefix '//[^/]##/'
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*:functions' ignored-patterns '_*'
-zstyle :compinstall filename '/Users/pavel/.zshrc'
-
-autoload -Uz compinit
-compinit
-
-zmodload zsh/complist
+[ -n $HOME/.zshrc.local ] && source $HOME/.zshrc.local
+for file in $HOME/.zsh/*.zsh; do
+	source "$file"
+done
 
 typeset -U fpath
 typeset -U path
@@ -103,11 +91,6 @@ export FZF_DEFAULT_COMMAND='fd --type file'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export RIPGREP_CONFIG_PATH=${HOME}/.ripgreprc
-
-[ -n $HOME/.zshrc.local ] && source $HOME/.zshrc.local
-for file in $HOME/.zsh/*(.N); do
-	source "$file"
-done
 
 if (( $+commands[brew] )); then
 	local p="$(brew --prefix)"
