@@ -21,7 +21,7 @@ DOTFILES=Rprofile \
 	 aliases \
 	 dictrc \
 	 gitconfig \
-	 gitignore_global \
+	 gitignore \
 	 gnupg/gpg.conf:$(HOME)/.gnupg/gpg.conf \
 	 gnupg/gpg-agent.conf:$(HOME)/.gnupg/gpg-agent.conf \
 	 procmail/proc-git-patches:$(HOME)/.procmail/proc-git-patches \
