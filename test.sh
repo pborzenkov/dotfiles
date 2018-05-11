@@ -3,9 +3,10 @@ set -e
 set -o pipefail
 
 ERRORS=()
+FILES=$(find . \( -path ./vim/plugged -o -path ./.git \) -prune -o -type f -print | sort -u)
 
-# find all executables and run `shellcheck`
-for f in $(find . -type f -not -iwholename '*.git*' -not -name "yubitouch.sh" | sort -u); do
+# run `shellcheck` on all shell files
+for f in ${FILES}; do
 	if file "$f" | grep --quiet shell; then
 		{
 			shellcheck "$f" && echo "[OK]: sucessfully linted $f"
