@@ -64,10 +64,7 @@ Plug 'tpope/vim-fugitive'
     autocmd BufReadPost fugitive://* setlocal bufhidden=delete
   augroup END
 " }}}2
-Plug 'junegunn/seoul256.vim'
-" seoul256 configuration {{{2
-let g:seoul256_background = 234
-" }}}2
+Plug 'altercation/vim-colors-solarized'
 Plug 'fatih/vim-go', { 'dir': '~/src/github.com/fatih/vim-go' }
 " vim-go configuration {{{2
 au FileType go nmap <Leader>B <Plug>(go-build)
@@ -90,7 +87,7 @@ Plug 'itchyny/lightline.vim'
 " lightline configuration {{{2
 set laststatus=2
 let g:lightline = {
-  \ 'colorscheme': 'seoul256',
+  \ 'colorscheme': 'solarized',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
   \             [ 'fugitive', 'filename', 'go' ] ],
@@ -148,7 +145,6 @@ let g:UltiSnipsJumpForwardTrigger="<c-n>"
 let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 " }}}2
 Plug 'easymotion/vim-easymotion'
-Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable' }
 Plug 'embear/vim-localvimrc'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'udalov/kotlin-vim'
@@ -172,7 +168,9 @@ let g:jsonnet_fmt_options = '-n 4'
 call plug#end()
 " }}}1
 
-colorscheme seoul256
+" colors
+set background=dark
+colorscheme solarized
 
 "
 set diffopt=filler,vertical
