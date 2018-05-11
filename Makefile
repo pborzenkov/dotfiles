@@ -14,6 +14,10 @@ bin: ## Installs the bin directory files.
 		ln -sf $(BINFILE) $(HOME)/bin/$(notdir $(BINFILE)); \
 	)
 
+all-files-in-dir = $(foreach file,\
+	$(wildcard $(1)/*),\
+	$(file):$(patsubst $(1)/%,$(2)/%,$(file)))
+
 # Default link target is $(HOME)/.$(name)
 # Custom link target name may be provided after :
 DOTFILES=Rprofile \
@@ -21,8 +25,7 @@ DOTFILES=Rprofile \
 	 dictrc \
 	 gitconfig \
 	 gitignore \
-	 gnupg/gpg.conf:$(HOME)/.gnupg/gpg.conf \
-	 gnupg/gpg-agent.conf:$(HOME)/.gnupg/gpg-agent.conf \
+	 $(call all-files-in-dir,gnupg,$(HOME)/.gnupg) \
 	 procmail/proc-git-patches:$(HOME)/.procmail/proc-git-patches \
 	 radare2rc \
 	 ripgreprc \
@@ -32,7 +35,7 @@ DOTFILES=Rprofile \
 	 vimrc \
 	 vim/autoload/plug.vim:$(HOME)/.vim/autoload/plug.vim \
 	 zshrc \
-	 zsh/local-setup.zsh:$(HOME)/.zsh/local-setup.zsh
+	 $(call all-files-in-dir,zsh,$(HOME)/.zsh)
 
 .PHONY: dotfiles
 dotfiles: ## Installs the dotfiles.
