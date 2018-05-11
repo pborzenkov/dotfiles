@@ -6,7 +6,7 @@ MAKEFILE_DIR=$(patsubst %/,%,$(dir $(realpath $(lastword $(MAKEFILE_LIST)))))
 BINFILES=$(shell find $(MAKEFILE_DIR)/bin -type f -not -name ".*.swp")
 
 .PHONY: bin
-bin:
+bin: ## Installs the bin directory files.
 	@echo "Linking binaries..."
 	@mkdir -p $(HOME)/bin
 	@- $(foreach BINFILE,$(BINFILES), \
@@ -36,7 +36,7 @@ DOTFILES=Rprofile \
 	 zsh/local-setup.zsh:$(HOME)/.zsh/local-setup.zsh
 
 .PHONY: dotfiles
-dotfiles:
+dotfiles: ## Installs the dotfiles.
 	@echo "Linking dotfiles..."
 	@chmod 600 $(MAKEFILE_DIR)/ssh/config
 	@- $(foreach DOTFILE,$(DOTFILES), \
@@ -49,7 +49,7 @@ dotfiles:
 	)
 
 .PHONY: test
-test: shellcheck
+test: shellcheck ## Runs all tests.
 
 # if this session isn't interactive, then we don't want to allocate a
 # TTY, which would fail, but if it is interactive, we do want to attach
@@ -60,9 +60,13 @@ ifeq ($(INTERACTIVE), 1)
 endif
 
 .PHONY: shellcheck
-shellcheck:
+shellcheck: ## Runs shellcheck tests on the scripts.
 	docker run --rm -i $(DOCKER_FLAGS) \
 		--name df-shellcheck \
 		-v $(MAKEFILE_DIR):/usr/src:ro \
 		--workdir /usr/src \
 		r.j3ss.co/shellcheck ./test.sh
+
+.PHONY: help
+help:
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
