@@ -47,32 +47,28 @@ custom_cursor_colors: false
 
 colors:
   primary:
-    background: '0x1c1c1c'
-    foreground: '0xeaeaea'
-
-  cursor:
-    text: '0xd0d0d0'
-    cursor: '0x505050'
+    background: '0x002b36'
+    foreground: '0x657b83'
 
   normal:
-    black:   '0x4e4e4e'
-    red:     '0xd68787'
-    green:   '0x5f865f'
-    yellow:  '0xd8af5f'
-    blue:    '0x85add4'
-    magenta: '0xd7afaf'
-    cyan:    '0x87afaf'
-    white:   '0xd0d0d0'
+    black:   '0x073642'
+    red:     '0xdc322f'
+    green:   '0x859900'
+    yellow:  '0xb58900'
+    blue:    '0x268bd2'
+    magenta: '0xd33682'
+    cyan:    '0x2aa198'
+    white:   '0xeee8d5'
 
   bright:
-    black:   '0x626262'
-    red:     '0xd75f87'
-    green:   '0x87af87'
-    yellow:  '0xffd787'
-    blue:    '0xadd4fb'
-    magenta: '0xffafaf'
-    cyan:    '0x87d7d7'
-    white:   '0xe4e4e4'
+    black:   '0x002b36'
+    red:     '0xcb4b16'
+    green:   '0x586e75'
+    yellow:  '0x657b83'
+    blue:    '0x839496'
+    magenta: '0x6c71c4'
+    cyan:    '0x93a1a1'
+    white:   '0xfdf6e3'
 
 visual_bell:
   animation: EaseOutExpo
