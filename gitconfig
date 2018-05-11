@@ -17,8 +17,6 @@
 	smtpuser = pavel.borzenkov@acronis.com
 	smtpserverport = 25
 	envelopesender = auto
-	aliasfiletype = mutt
-	aliasesfile = ~/.aliases
 [alias]
 	st = status -uno
 	root = !pwd

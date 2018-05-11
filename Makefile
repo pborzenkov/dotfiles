@@ -18,7 +18,6 @@ bin: ## Installs the bin directory files.
 # Custom link target name may be provided after :
 DOTFILES=Rprofile \
 	 alacritty.yml:$(HOME)/.config/alacritty/alacritty.yml \
-	 aliases \
 	 dictrc \
 	 gitconfig \
 	 gitignore \
