@@ -47,6 +47,7 @@ dotfiles: ## Installs the dotfiles.
 		\
 		$(if $(target),$(shell mkdir -p $(dir $(target)))) \
 		echo ln -sf $(MAKEFILE_DIR)/$(source) $(if $(target),$(target),$(HOME)/.$(source)); \
+		rm -f $(if $(target),$(target),$(HOME)/.$(source)) && \
 		ln -sf $(MAKEFILE_DIR)/$(source) $(if $(target),$(target),$(HOME)/.$(source)); \
 	)
 
