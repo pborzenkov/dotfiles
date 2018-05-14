@@ -2,13 +2,6 @@ for file in $HOME/.zsh/*.zsh; do
 	source "$file"
 done
 
-typeset -U fpath
-typeset -U path
-typeset -U manpath
-typeset -U INFOPATH
-
-path=($HOME/bin $path)
-
 # avoid beeping
 setopt nobeep
 
