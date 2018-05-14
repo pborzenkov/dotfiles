@@ -1,3 +1,6 @@
+autoload -Uz compinit
+compinit
+
 # Use caching for completion
 zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion::complete:*' cache-path "$HOME/.zsh/cache/"
