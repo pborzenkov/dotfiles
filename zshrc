@@ -14,15 +14,6 @@ setopt nobeep
 
 PROMPT="%B%m%b %j %20<...<%~%# "
 
-bindkey -v
-bindkey '^a' beginning-of-line
-bindkey '^e' end-of-line
-bindkey '^l' clear-screen
-bindkey '^k' kill-line
-bindkey '^u' backward-kill-line
-bindkey '^p' history-search-backward
-bindkey '^n' insert-last-word
-bindkey '^?' backward-delete-char
 function zle-line-init zle-keymap-select {
 	VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
 	RPROMPT="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $ERPROMPT"
@@ -30,7 +21,7 @@ function zle-line-init zle-keymap-select {
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
-export KEYTIMEOUT=1
+
 export WORDCHARS=${WORDCHARS/\//}
 
 setopt extendedglob
