@@ -12,18 +12,8 @@ setopt noclobber
 setopt notify
 ## ENDIF Background options
 
-CLICOLOR=1
-alias l="ls"
-alias ll="ls -l"
-alias la="ls -a"
-alias gd='godoc $(gopkgs | fzf) | less'
-alias sshfa='ssh -o ForwardAgent=yes'
-alias sshvp='ssh -o ProxyCommand="nc -X connect -x acronis.sw.ru:80 %h %p"'
 
 export EDITOR="vim"
-
-for c in find fd rg curl http;
-	alias $c="noglob $c"
 
 if (( $+commands[tag] )); then
 	export TAG_SEARCH_PROG=rg
