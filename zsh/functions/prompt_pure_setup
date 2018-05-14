@@ -102,6 +102,9 @@ prompt_pure_preprompt_render() {
 	# Initialize the preprompt array.
 	local -a preprompt_parts
 
+	# Number of background jobs
+	preprompt_parts+=('%F{12}%j%f')
+
 	# Set the path.
 	preprompt_parts+=('%F{${STATUS_COLOR}}%~%f')
 
