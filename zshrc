@@ -1,4 +1,3 @@
-[ -n $HOME/.zshrc.local ] && source $HOME/.zshrc.local
 for file in $HOME/.zsh/*.zsh; do
 	source "$file"
 done
