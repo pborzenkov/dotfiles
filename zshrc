@@ -39,13 +39,6 @@ alias gd='godoc $(gopkgs | fzf) | less'
 alias sshfa='ssh -o ForwardAgent=yes'
 alias sshvp='ssh -o ProxyCommand="nc -X connect -x acronis.sw.ru:80 %h %p"'
 
-# On local host use gpg-agent, on remote host use forwarded agent socket.
-if [ -z "${SSH_CONNECTION}" ]; then
-	export GPG_TTY=$(tty)
-	export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-	gpgconf --launch gpg-agent
-fi
-
 export EDITOR="vim"
 
 for c in find fd rg curl http;
