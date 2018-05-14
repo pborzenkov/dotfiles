@@ -5,8 +5,6 @@ done
 # avoid beeping
 setopt nobeep
 
-export WORDCHARS=${WORDCHARS/\//}
-
 setopt extendedglob
 setopt noclobber
 

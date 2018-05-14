@@ -12,3 +12,7 @@ bindkey '^?' backward-delete-char
 
 # Reduce <ESC> key timeout to 0.1 second
 export KEYTIMEOUT=1
+
+# Don't count / as word separator
+export WORDCHARS=${WORDCHARS/\//}
+
