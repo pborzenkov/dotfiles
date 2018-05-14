@@ -33,23 +33,6 @@ zle -N zle-keymap-select
 export KEYTIMEOUT=1
 export WORDCHARS=${WORDCHARS/\//}
 
-## History
-# enable history
-setopt append_history
-# import history from other sessions
-setopt share_history
-# save timestamp and duration to history
-setopt extended_history
-# ignore duplicated in history
-setopt histignorealldups
-# remove superfluous blanks before adding to history
-setopt histreduceblanks
-
-HISTFILE=~/.zhistory
-HISTSIZE=1024
-SAVEHIST=1024
-## ENDOF History
-
 setopt extendedglob
 setopt noclobber
 
