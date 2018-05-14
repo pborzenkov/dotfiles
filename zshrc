@@ -5,16 +5,6 @@ done
 # avoid beeping
 setopt nobeep
 
-PROMPT="%B%m%b %j %20<...<%~%# "
-
-function zle-line-init zle-keymap-select {
-	VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
-	RPROMPT="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $ERPROMPT"
-	zle reset-prompt
-}
-zle -N zle-line-init
-zle -N zle-keymap-select
-
 export WORDCHARS=${WORDCHARS/\//}
 
 setopt extendedglob
