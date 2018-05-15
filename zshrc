@@ -2,16 +2,6 @@ for file in $HOME/.zsh/*.zsh; do
 	source "$file"
 done
 
-# avoid beeping
-setopt nobeep
-
-setopt extendedglob
-setopt noclobber
-
-## Background options
-setopt notify
-## ENDIF Background options
-
 
 export EDITOR="vim"
 
