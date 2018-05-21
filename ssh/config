@@ -14,8 +14,9 @@ Host vz7.esxi.pbor ubuntu.esxi.pbor salt.stg.corp.acronis.com dashboard.stg.corp
 Host gerrit.cloudlinux.com
 	KexAlgorithms diffie-hellman-group14-sha1,diffie-hellman-group1-sha1
 
-Host nwatch.local
-	User root
+Host nwatch.lan
+	User admin
+	MACs hmac-sha1,hmac-md5
 
 Match all
 	KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256
