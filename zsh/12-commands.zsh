@@ -32,4 +32,20 @@ if (( $+commands[kubectl] )); then
 	}
 fi
 
+# Lazy load doctl completions
+if (( $+commands[doctl] )); then
+	compdef _doctl_load_completion doctl
 
+	doctl() {
+		_doctl_load_completion
+		$0 "$@"
+	}
+
+	_doctl_load_completion() {
+		unfunction doctl
+		unfunction _doctl_load_completion
+		compdef -d doctl
+
+		source <(doctl completion zsh)
+	}
+fi
