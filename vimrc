@@ -207,6 +207,19 @@ function! SourceIfExists(file)
 endfunction
 " }}}1
 
+" Configure cscope
+if has("cscope")
+  set csto=0
+  set cst
+  set nocsverb
+  if filereadable("cscope.out")
+    cs add cscope.out
+  elseif $CSCOPE_DB != ""
+    cs add $CSCOPE_DB
+  endif
+  set csverb
+endif
+
 call SourceIfExists("~/.vimrc.local")
 
 " vim: set sw=2 ts=2 et foldlevel=0 foldmethod=marker:
