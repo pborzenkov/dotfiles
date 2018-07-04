@@ -1,18 +1,4 @@
-Host *.eng.sw.ru *.qa.sw.ru
-	TCPKeepAlive yes
-	ServerAliveInterval 30
-	ServerAliveCountMax 5
-
-Host pstorage.eng.sw.ru
-	User pborzenkov
-	ForwardAgent yes
-
-Host vz7.esxi.pbor ubuntu.esxi.pbor salt.stg.corp.acronis.com dashboard.stg.corp.acronis.com
-	User pbor
-	ForwardAgent yes
-
-Host gerrit.cloudlinux.com
-	KexAlgorithms diffie-hellman-group14-sha1,diffie-hellman-group1-sha1
+Include config.local
 
 Host nwatch.lan
 	User admin
