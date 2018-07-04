@@ -2,6 +2,7 @@
 bindkey -v
 # But add some useful emacs-mode bindings
 bindkey '^a' beginning-of-line
+bindkey '^b' push-line-or-edit
 bindkey '^e' end-of-line
 bindkey '^l' clear-screen
 bindkey '^k' kill-line
