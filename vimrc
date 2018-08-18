@@ -25,6 +25,8 @@ nnoremap <Leader>n :set number!<CR>:set relativenumber!<CR>
 
 map // :nohlsearch<CR>
 
+nnoremap <C-s> :Rg <c-r>=expand("<cword>")<CR><CR>
+
 set path=$GOPATH/src,**
 set wildmenu
 
@@ -165,6 +167,7 @@ Plug 'google/vim-jsonnet'
 " {{{2
 let g:jsonnet_fmt_options = '-n 4'
 " }}}2
+Plug 'cespare/vim-toml'
 call plug#end()
 " }}}1
 
