@@ -17,3 +17,5 @@ export KEYTIMEOUT=1
 # Don't count / as word separator
 export WORDCHARS=${WORDCHARS/\//}
 
+setopt noflowcontrol
+stty -ixon -ixoff
