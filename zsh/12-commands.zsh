@@ -1,8 +1,5 @@
-# Use tag wrapper around rg
-if (( $+commands[tag] )); then
-	export TAG_SEARCH_PROG=rg
-	tag() { command tag "$@"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null }
-	alias rg='noglob tag'
+if (( $+commands[rg] )); then
+	export RIPGREP_CONFIG_PATH=${HOME}/.ripgreprc
 fi
 
 # Use fd as fzf search engine
@@ -47,5 +44,23 @@ if (( $+commands[doctl] )); then
 		compdef -d doctl
 
 		source <(doctl completion zsh)
+	}
+fi
+
+# Lazy load helm completions
+if (( $+commands[helm] )); then
+	compdef _helm_load_completion helm
+
+	helm() {
+		_helm_load_completion
+		$0 "$@"
+	}
+
+	_helm_load_completion() {
+		unfunction helm
+		unfunction _helm_load_completion
+		compdef -d helm
+
+		source <(helm completion zsh)
 	}
 fi

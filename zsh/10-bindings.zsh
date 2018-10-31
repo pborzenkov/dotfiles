@@ -18,4 +18,6 @@ export KEYTIMEOUT=1
 export WORDCHARS=${WORDCHARS/\//}
 
 setopt noflowcontrol
+stty stop undef
+stty start undef
 stty -ixon -ixoff
