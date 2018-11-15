@@ -203,10 +203,17 @@ set undoreload=10000
 
 set clipboard=unnamed
 
+" Configure yaml {{{1
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+" }}}1
+
+" Jump to last used line after openning a file {{{1
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 			\| exe "normal! g'\"" | endif
 
 autocmd CompleteDone * pclose
+" }}}1
 
 " Function to source only if file exists {{{1
 function! SourceIfExists(file)
@@ -216,7 +223,7 @@ function! SourceIfExists(file)
 endfunction
 " }}}1
 
-" Configure cscope
+" Configure cscope {{{1
 if has("cscope")
   set csto=0
   set cst
@@ -228,6 +235,7 @@ if has("cscope")
   endif
   set csverb
 endif
+" }}}1
 
 call SourceIfExists("~/.vimrc.local")
 
