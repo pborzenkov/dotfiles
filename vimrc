@@ -67,34 +67,24 @@ Plug 'tpope/vim-fugitive'
   augroup END
 " }}}2
 Plug 'altercation/vim-colors-solarized'
-Plug 'fatih/vim-go', { 'dir': '~/src/github.com/fatih/vim-go' }
-" vim-go configuration {{{2
-au FileType go nmap <Leader>B <Plug>(go-build)
-au FileType go nmap <Leader>T <Plug>(go-test)
-au FileType go nmap <Leader>F <Plug>(go-test-func)
-au FileType go nmap <Leader>A <Plug>(go-alternate-edit)
-au FileType go nmap <Leader>I <Plug>(go-info)
-au FileType go nmap <Leader>C <Plug>(go-coverage-toggle)
-
-let g:go_template_autocreate=0
-let g:go_autodetect_gopath=0
-let g:go_def_mode='guru'
-" }}}2
-" Plug 'prabirshrestha/async.vim'
-" Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
 " vim-lsp configuration {{{2
-" nnoremap <C-]> :LspDefinition<CR>
-" nnoremap K :LspHover<CR>
-" set omnifunc=lsp#complete
-" autocmd BufWritePre * :LspDocumentFormat
-"
-" if executable('go-langserver')
-"   au User lsp_setup call lsp#register_server({
-"         \ 'name': 'go-langserver',
-"         \ 'cmd': {server_info->['go-langserver', '-gocodecompletion']},
-"         \ 'whitelist': ['go'],
-"         \ })
-" endif
+
+autocmd FileType go setlocal omnifunc=lsp#complete
+autocmd FileType go nmap <buffer> gd <plug>(lsp-definition)
+autocmd FileType go nmap <buffer> K <plug>(lsp-hover)
+autocmd FileType go nmap <buffer> ,n <plug>(lsp-next-error)
+autocmd FileType go nmap <buffer> ,p <plug>(lsp-previous-error)
+autocmd BufWritePre * silent! :LspDocumentFormatSync
+
+if executable('gopls')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'go-lang',
+        \ 'cmd': {server_info->['gopls']},
+        \ 'whitelist': ['go'],
+        \ })
+endif
 " }}}2
 Plug 'majutsushi/tagbar'
 " tagbar configuration {{{2
@@ -204,9 +194,11 @@ set undoreload=10000
 set clipboard=unnamed
 
 " Configure yaml {{{1
-au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+au BufNewFile,BufReadPost *.{yaml,yml} setlocal filetype=yaml foldmethod=indent
+au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 " }}}1
+
+au BufRead * normal zR
 
 " Jump to last used line after openning a file {{{1
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
