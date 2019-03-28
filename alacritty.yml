@@ -10,7 +10,7 @@ window:
     x: 2
     y: 2
 
-  decorations: true
+  decorations: full
 
 tabspaces: 8
 
@@ -32,18 +32,16 @@ font:
   size: 14.0
 
   offset:
-    x: 0.0
-    y: 0.0
+    x: 0
+    y: 0
 
   glyph_offset:
-    x: 0.0
-    y: 0.0
+    x: 0
+    y: 0
 
   use_thin_strokes: true
 
 render_timer: false
-
-custom_cursor_colors: false
 
 colors:
   primary:
@@ -83,16 +81,17 @@ mouse:
   double_click: { threshold: 300 }
   triple_click: { threshold: 300 }
 
-  faux_scrollback_lines: 1
+  faux_scrolling_lines: 1
+
+  hide_when_typing: true
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
 
 dynamic_title: true
 
-hide_cursor_when_typing: false
-
-cursor_style: Block
+cursor:
+  style: Block
 
 live_config_reload: true
 
