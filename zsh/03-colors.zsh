@@ -1,1 +1,2 @@
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+export BAT_THEME=solarized

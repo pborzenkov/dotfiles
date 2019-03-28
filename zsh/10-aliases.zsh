@@ -4,6 +4,6 @@ alias la="ls -G -a"
 alias sshfa='ssh -o ForwardAgent=yes'
 alias sshvp='ssh -o ProxyCommand="nc -X connect -x acronis.sw.ru:80 %h %p"'
 
-for c in find fd rg curl http;
+for c in find fd rg curl http open youtube-dl;
 	alias $c="noglob $c"
 
