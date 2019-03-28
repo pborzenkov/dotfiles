@@ -35,7 +35,8 @@ DOTFILES=Rprofile \
 	 vimrc \
 	 vim/autoload/plug.vim:$(HOME)/.vim/autoload/plug.vim \
 	 zshrc \
-	 $(call all-files-in-dir,zsh,$(HOME)/.zsh)
+	 $(call all-files-in-dir,zsh,$(HOME)/.zsh) \
+	 $(call all-files-in-dir,bat,$(HOME)/.bat)
 
 .PHONY: dotfiles
 dotfiles: ## Installs the dotfiles.
