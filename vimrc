@@ -72,11 +72,12 @@ Plug 'prabirshrestha/vim-lsp'
 " vim-lsp configuration {{{2
 
 autocmd FileType go setlocal omnifunc=lsp#complete
-autocmd FileType go nmap <buffer> gd <plug>(lsp-definition)
+autocmd FileType go nmap <buffer> <C-]> <plug>(lsp-definition)
 autocmd FileType go nmap <buffer> K <plug>(lsp-hover)
 autocmd FileType go nmap <buffer> ,n <plug>(lsp-next-error)
 autocmd FileType go nmap <buffer> ,p <plug>(lsp-previous-error)
-autocmd BufWritePre * silent! :LspDocumentFormatSync
+autocmd FileType go nmap <buffer> ,d <plug>(lsp-document-diagnostics)
+autocmd BufWritePre *.go silent! :LspDocumentFormatSync
 
 if executable('gopls')
   au User lsp_setup call lsp#register_server({
@@ -170,6 +171,7 @@ call plug#end()
 " }}}1
 
 " colors
+let g:solarized_termtrans=1
 set background=dark
 colorscheme solarized
 
