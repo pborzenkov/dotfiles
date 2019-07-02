@@ -1,5 +1,8 @@
 # vim files
 .*.swp
 
+# VS Code files
+.vscode
+
 # direnv files
 .envrc
