@@ -1,3 +1,7 @@
+if (( $+commands[go] )); then
+	path=("$(go env GOPATH)/bin" $path)
+fi
+
 # If we have homebrew/linuxbrew installed, make sure
 # we include its paths as well
 if (( $+commands[brew] )); then
