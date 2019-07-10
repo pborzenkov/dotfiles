@@ -71,6 +71,10 @@ Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 " vim-lsp configuration {{{2
 
+let g:lsp_diagnostics_enabled = 1
+let g:lsp_preview_float = 1
+let g:lsp_signs_enabled = 1
+
 autocmd FileType go setlocal omnifunc=lsp#complete
 autocmd FileType go nmap <buffer> <C-]> <plug>(lsp-definition)
 autocmd FileType go nmap <buffer> K <plug>(lsp-hover)
