@@ -29,7 +29,7 @@ DOTFILES=Rprofile \
 	 procmail/proc-git-patches:$(HOME)/.procmail/proc-git-patches \
 	 radare2rc \
 	 ripgreprc \
-	 ssh/config:$(HOME)/.ssh/config \
+	 $(call all-files-in-dir,ssh,$(HOME)/.ssh) \
 	 tmux.conf \
 	 tmux.remote.conf \
 	 vimrc \
