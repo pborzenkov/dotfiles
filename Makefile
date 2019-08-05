@@ -21,7 +21,7 @@ all-files-in-dir = $(foreach file,\
 # Default link target is $(HOME)/.$(name)
 # Custom link target name may be provided after :
 DOTFILES=Rprofile \
-	 alacritty.yml:$(HOME)/.config/alacritty/alacritty.yml \
+	 config/alacritty/alacritty.yml:$(HOME)/.config/alacritty/alacritty.yml \
 	 dictrc \
 	 gitconfig \
 	 gitignore \
