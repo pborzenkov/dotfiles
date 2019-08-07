@@ -26,4 +26,9 @@ set autoread
 set hidden
 " }}}1
 
+" Rows numbering {{{1
+set number
+set relativenumber
+" }}}
+
 " vim: set sw=2 ts=2 et foldlevel=0 foldmethod=marker:

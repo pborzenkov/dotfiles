@@ -12,7 +12,6 @@ function LC_maps()
     nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<CR>
     nnoremap <buffer> <silent> gd :call LanguageClient#textDocument_definition()<CR>
 
-    set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
     autocmd BufWritePre <buffer> :call LanguageClient#textDocument_formatting_sync()
   endif
 endfunction
