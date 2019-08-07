@@ -8,24 +8,11 @@ set nocompatible
 " turn the fuckin' 'beep' off
 set vb t_vb=
 
-" search options
-set incsearch
-set hlsearch
-set ignorecase
-set smartcase
-
-set autowrite
-set hidden
-
-set noshowmode
-
 set number
 set relativenumber
 nnoremap <Leader>n :set number!<CR>:set relativenumber!<CR>
 
 map // :nohlsearch<CR>
-
-nnoremap <C-s> :Rg <c-r>=expand("<cword>")<CR><CR>
 
 set path=$GOPATH/src,**
 set wildmenu
@@ -66,124 +53,19 @@ Plug 'tpope/vim-fugitive'
     autocmd BufReadPost fugitive://* setlocal bufhidden=delete
   augroup END
 " }}}2
-Plug 'altercation/vim-colors-solarized'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-" vim-lsp configuration {{{2
-
-let g:lsp_diagnostics_enabled = 1
-let g:lsp_preview_float = 1
-let g:lsp_signs_enabled = 1
-
-autocmd FileType go setlocal omnifunc=lsp#complete
-autocmd FileType go nmap <buffer> <C-]> <plug>(lsp-definition)
-autocmd FileType go nmap <buffer> K <plug>(lsp-hover)
-autocmd FileType go nmap <buffer> ,n <plug>(lsp-next-error)
-autocmd FileType go nmap <buffer> ,p <plug>(lsp-previous-error)
-autocmd FileType go nmap <buffer> ,d <plug>(lsp-document-diagnostics)
-autocmd BufWritePre *.go silent! :LspDocumentFormatSync
-
-if executable('gopls')
-  au User lsp_setup call lsp#register_server({
-        \ 'name': 'go-lang',
-        \ 'cmd': {server_info->['gopls']},
-        \ 'whitelist': ['go'],
-        \ })
-endif
-" }}}2
 Plug 'majutsushi/tagbar'
 " tagbar configuration {{{2
 nnoremap <Leader>G :Tagbar<CR>
 autocmd FileType qf wincmd J
 " }}}2
-Plug 'itchyny/lightline.vim'
-" lightline configuration {{{2
-set laststatus=2
-let g:lightline = {
-  \ 'colorscheme': 'solarized',
-  \ 'active': {
-  \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'fugitive', 'filename', 'go' ] ],
-  \   'right': [ [ 'percent', 'lineinfo' ],
-  \              [ 'syntastic' ],
-  \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
-  \ },
-  \ 'component_function': {
-  \   'fugitive': 'LightLineFugitive',
-  \   'filename': 'LightLineFilename',
-  \   'syntastic': 'SyntasticStatuslineFlag',
-  \   'go': 'LightLineGo',
-  \ },
-  \ }
-function! LightLineFugitive()
-  return exists('*fugitive#head') ? fugitive#head() : ''
-endfunction
-
-function! LightLineReadonly()
-  if &filetype == "help"
-    return ""
-  elseif &readonly
-    return "RO"
-  else
-    return ""
-  endif
-endfunction
-
-function! LightLineModified()
-  if &filetype == "help"
-    return ""
-  elseif &modified
-    return "+"
-  elseif &modifiable
-    return ""
-  else
-    return ""
-  endif
-endfunction
-
-function! LightLineFilename()
-  return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
-        \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
-   \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
-endfunction
-
-function! LightLineGo()
-  return exists('*go#statusline#Show') ? go#statusline#Show() : ''
-endfunction
-" }}}2
 Plug 'easymotion/vim-easymotion'
 Plug 'embear/vim-localvimrc'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'hashivim/vim-terraform'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-" {{{2
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1, <bang>0)
-
-nnoremap <Leader>e :Files<cr>
-nnoremap <Leader>b :Buffers<cr>
-nnoremap <Leader>r :Rg<cr>
-" }}}2
-Plug 'google/vim-jsonnet'
-" {{{2
-let g:jsonnet_fmt_options = '-n 4'
-" }}}2
-Plug 'cespare/vim-toml'
 call plug#end()
 " }}}1
 
-" colors
-let g:solarized_termtrans=1
-set background=dark
-colorscheme solarized
-
 "
 set diffopt=filler,vertical
-
-" automatically read files again when they've been changed outside of Vim
-set autoread
 
 set fillchars+=vert:│
 

@@ -22,6 +22,8 @@ all-files-in-dir = $(foreach file,\
 # Custom link target name may be provided after :
 DOTFILES=Rprofile \
 	 config/alacritty/alacritty.yml:$(HOME)/.config/alacritty/alacritty.yml \
+	 $(call all-files-in-dir,config/nvim,$(HOME)/.config/nvim) \
+	 $(call all-files-in-dir,local/share/nvim/site/autoload,$(HOME)/.local/share/nvim/site/autoload) \
 	 dictrc \
 	 gitconfig \
 	 gitignore \
@@ -32,8 +34,6 @@ DOTFILES=Rprofile \
 	 $(call all-files-in-dir,ssh,$(HOME)/.ssh) \
 	 tmux.conf \
 	 tmux.remote.conf \
-	 vimrc \
-	 vim/autoload/plug.vim:$(HOME)/.vim/autoload/plug.vim \
 	 zshrc \
 	 $(call all-files-in-dir,zsh,$(HOME)/.zsh) \
 	 $(call all-files-in-dir,bat,$(HOME)/.bat)
