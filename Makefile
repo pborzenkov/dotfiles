@@ -28,7 +28,6 @@ DOTFILES=Rprofile \
 	 gitconfig \
 	 gitignore \
 	 $(call all-files-in-dir,gnupg,$(HOME)/.gnupg) \
-	 procmail/proc-git-patches:$(HOME)/.procmail/proc-git-patches \
 	 radare2rc \
 	 ripgreprc \
 	 $(call all-files-in-dir,ssh,$(HOME)/.ssh) \
