@@ -1,8 +1,0 @@
-#!/bin/sh
-
-if [ $# != 1 ]; then
-	echo "Usage: $0 <service>"
-	exit 255
-fi
-
-ykneo-client.pl -calculate -name="${1}" -time=now | awk '{ print $3 }'
