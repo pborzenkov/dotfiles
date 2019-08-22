@@ -4,6 +4,6 @@ call plug#end()
 
 let g:solarized_termtrans=1
 set background=dark
-colorscheme solarized
+silent! colorscheme solarized
 
 " vim: set sw=2 ts=2 et foldlevel=0 foldmethod=marker:
