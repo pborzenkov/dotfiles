@@ -11,12 +11,6 @@
 [merge]
 	log = true
 	tool = vimdiff
-[sendemail]
-	smtpserver = smtp.corp.acronis.com
-	smtpencryption = tls
-	smtpuser = pavel.borzenkov@acronis.com
-	smtpserverport = 25
-	envelopesender = auto
 [alias]
 	st = status -uno
 	root = !pwd
