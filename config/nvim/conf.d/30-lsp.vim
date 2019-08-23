@@ -6,10 +6,13 @@ Plug 'autozimu/LanguageClient-neovim', {
 let g:LanguageClient_serverCommands = {
       \ 'go': ['gopls'],
       \ 'c': ['clangd', '-background-index'],
+      \ 'cpp': ['clangd', '-background-index'],
       \ }
 
 function LC_maps()
   if has_key(g:LanguageClient_serverCommands, &filetype)
+    nnoremap <buffer> <silent> g? :call LanguageClient_contextMenu()<CR>
+
     nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<CR>
     nnoremap <buffer> <silent> gd :call LanguageClient#textDocument_definition()<CR>
 
