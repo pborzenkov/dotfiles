@@ -6,3 +6,7 @@
 
 # direnv files
 .envrc
+
+# JSON Compilation Database
+compile_commands.json
+.clangd
