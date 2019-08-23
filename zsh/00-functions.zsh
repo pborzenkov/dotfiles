@@ -20,5 +20,5 @@ add_lazy_completion() {
 }
 
 zsh-update-plugins() {
-	antibody bundle < ${HOME}/.zsh/99-plugins.txt > ${HOME}/.zsh/99-plugins.zsh
+	antibody bundle < ${HOME}/.zsh/99-plugins.txt >| ${HOME}/.zsh/99-plugins.zsh
 }
