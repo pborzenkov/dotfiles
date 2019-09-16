@@ -5,8 +5,6 @@ Plug 'autozimu/LanguageClient-neovim', {
 " autozimu/LanguageClient-neovim config {{{1
 let g:LanguageClient_serverCommands = {
       \ 'go': ['gopls'],
-      \ 'c': ['clangd', '-background-index'],
-      \ 'cpp': ['clangd', '-background-index'],
       \ }
 
 function LC_maps()
