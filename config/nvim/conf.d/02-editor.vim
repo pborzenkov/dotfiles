@@ -5,6 +5,7 @@ Plug 'junegunn/fzf.vim'
 nnoremap <silent> <Leader>e :Files<cr>
 nnoremap <silent> <Leader>b :Buffers<cr>
 nnoremap <silent> <Leader>r :Rg<cr>
+nnoremap <silent> <C-s> :Rg <c-r>=expand("<cword>")<CR><CR>
 " }}}1
 
 Plug 'easymotion/vim-easymotion'
