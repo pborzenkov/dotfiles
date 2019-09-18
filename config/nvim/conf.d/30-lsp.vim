@@ -5,6 +5,8 @@ Plug 'autozimu/LanguageClient-neovim', {
 " autozimu/LanguageClient-neovim config {{{1
 let g:LanguageClient_serverCommands = {
       \ 'go': ['gopls'],
+      \ 'cpp': ['clangd', '-background-index'],
+      \ 'c': ['clangd', '-background-index'],
       \ }
 let g:LanguageClient_changeThrottle = 0.5
 let g:LanguageClient_virtualTextPrefix = "    •••➜ "
@@ -21,7 +23,10 @@ function LC_maps()
     nnoremap <buffer> <silent> gR :call LanguageClient#textDocument_rename()<CR>
 
     set completefunc=LanguageClient#complete
-    autocmd BufWritePre <buffer> :call LanguageClient#textDocument_formatting_sync()
+    augroup LSPFormatDocument
+      autocmd!
+      autocmd BufWritePre <buffer> :call LanguageClient#textDocument_formatting_sync()
+    augroup END
   endif
 endfunction
 
