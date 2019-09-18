@@ -10,8 +10,6 @@ let g:LanguageClient_serverCommands = {
       \ }
 let g:LanguageClient_changeThrottle = 0.5
 let g:LanguageClient_virtualTextPrefix = "    •••➜ "
-let g:LanguageClient_diagnosticsList = "Location"
-let g:LanguageClient_selectionUI = "location-list"
 
 function LC_maps()
   if has_key(g:LanguageClient_serverCommands, &filetype)
