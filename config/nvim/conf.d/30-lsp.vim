@@ -21,8 +21,10 @@ function LC_maps()
     nnoremap <buffer> <silent> gr :call LanguageClient#textDocument_references()<CR>
     nnoremap <buffer> <silent> gR :call LanguageClient#textDocument_rename()<CR>
 
-    nnoremap <buffer> <silent> gn :lnext<CR>
-    nnoremap <buffer> <silent> gp :lprev<CR>
+    nmap <buffer> gD <Plug>(qf_loc_toggle_stay)
+    nmap <buffer> gn <Plug>(qf_loc_next)
+    nmap <buffer> gp <Plug>(qf_loc_previous)
+    nmap <buffer> gl <Plug>(qf_qf_switch)
 
     set completefunc=LanguageClient#complete
     augroup LSPFormatDocument
@@ -47,5 +49,10 @@ function! LSPGetDiagnosticsCount(type)
   return len(current_buf_diagnostics)
 endfunction
 " }}}1
+
+Plug 'romainl/vim-qf'
+" romainl/vim-qf config {{{1
+let g:qf_mapping_ack_style = 1
+let g:qf_auto_quit = 1
 
 " vim: set sw=2 ts=2 et foldlevel=0 foldmethod=marker:
