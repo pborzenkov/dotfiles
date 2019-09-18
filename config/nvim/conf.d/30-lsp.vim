@@ -8,8 +8,9 @@ let g:LanguageClient_serverCommands = {
       \ 'cpp': ['clangd', '-background-index'],
       \ 'c': ['clangd', '-background-index'],
       \ }
-let g:LanguageClient_changeThrottle = 0.5
+
 let g:LanguageClient_virtualTextPrefix = "    •••➜ "
+let g:LanguageClient_diagnosticsList = "Location"
 
 function LC_maps()
   if has_key(g:LanguageClient_serverCommands, &filetype)
@@ -20,6 +21,9 @@ function LC_maps()
     nnoremap <buffer> <silent> gr :call LanguageClient#textDocument_references()<CR>
     nnoremap <buffer> <silent> gR :call LanguageClient#textDocument_rename()<CR>
 
+    nnoremap <buffer> <silent> gn :lnext<CR>
+    nnoremap <buffer> <silent> gp :lprev<CR>
+
     set completefunc=LanguageClient#complete
     augroup LSPFormatDocument
       autocmd!
@@ -28,7 +32,20 @@ function LC_maps()
   endif
 endfunction
 
-autocmd FileType * call LC_maps()
+augroup ConfigureLSP
+  autocmd!
+  autocmd FileType * call LC_maps()
+  autocmd User LanguageClientDiagnosticsChanged call lightline#update()
+augroup END
+" }}}1
+
+" LSP help functions {{{1
+function! LSPGetDiagnosticsCount(type)
+  let current_buf_number = bufnr('%')
+  let qflist = getloclist(0)
+  let current_buf_diagnostics = filter(qflist, {index, dict -> dict['bufnr'] == current_buf_number && dict['type'] == a:type})
+  return len(current_buf_diagnostics)
+endfunction
 " }}}1
 
 " vim: set sw=2 ts=2 et foldlevel=0 foldmethod=marker:
