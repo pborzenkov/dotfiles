@@ -21,10 +21,9 @@ function LC_maps()
     nnoremap <buffer> <silent> gr :call LanguageClient#textDocument_references()<CR>
     nnoremap <buffer> <silent> gR :call LanguageClient#textDocument_rename()<CR>
 
-    nmap <buffer> gD <Plug>(qf_loc_toggle_stay)
+    nmap <buffer> gD <Plug>(qf_loc_toggle)
     nmap <buffer> gn <Plug>(qf_loc_next)
     nmap <buffer> gp <Plug>(qf_loc_previous)
-    nmap <buffer> gl <Plug>(qf_qf_switch)
 
     set completefunc=LanguageClient#complete
     augroup LSPFormatDocument
