@@ -30,6 +30,10 @@ set hidden
 " Rows numbering {{{1
 set number
 set relativenumber
-" }}}
+" }}}1
+
+" Command completion {{{1
+set wildmode=longest:full,full
+" }}}1
 
 " vim: set sw=2 ts=2 et foldlevel=0 foldmethod=marker:
