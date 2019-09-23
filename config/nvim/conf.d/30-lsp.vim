@@ -12,7 +12,7 @@ let g:LanguageClient_serverCommands = {
 let g:LanguageClient_virtualTextPrefix = "    •••➜ "
 let g:LanguageClient_diagnosticsList = "Location"
 
-function LC_maps()
+function LSP_maps()
   if has_key(g:LanguageClient_serverCommands, &filetype)
     nnoremap <buffer> <silent> g? :call LanguageClient_contextMenu()<CR>
 
@@ -20,6 +20,7 @@ function LC_maps()
     nnoremap <buffer> <silent> gd :call LanguageClient#textDocument_definition()<CR>
     nnoremap <buffer> <silent> gr :call LanguageClient#textDocument_references()<CR>
     nnoremap <buffer> <silent> gR :call LanguageClient#textDocument_rename()<CR>
+    nnoremap <buffer> <silent> gt :call LanguageClient#textDocument_documentSymbol()<CR>
 
     nmap <buffer> gD <Plug>(qf_loc_toggle)
     nmap <buffer> gn <Plug>(qf_loc_next)
@@ -35,7 +36,7 @@ endfunction
 
 augroup ConfigureLSP
   autocmd!
-  autocmd FileType * call LC_maps()
+  autocmd FileType * call LSP_maps()
   autocmd User LanguageClientDiagnosticsChanged call lightline#update()
 augroup END
 " }}}1
@@ -53,5 +54,6 @@ Plug 'romainl/vim-qf'
 " romainl/vim-qf config {{{1
 let g:qf_mapping_ack_style = 1
 let g:qf_auto_quit = 1
+" }}}1
 
 " vim: set sw=2 ts=2 et foldlevel=0 foldmethod=marker:
