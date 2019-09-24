@@ -23,6 +23,7 @@ all-files-in-dir = $(foreach file,\
 DOTFILES=Rprofile \
 	 config/alacritty/alacritty.yml:$(HOME)/.config/alacritty/alacritty.yml \
 	 $(call all-files-in-dir,config/nvim,$(HOME)/.config/nvim) \
+	 config/starship.toml:$(HOME)/.config/starship.toml \
 	 $(call all-files-in-dir,local/share/nvim/site/autoload,$(HOME)/.local/share/nvim/site/autoload) \
 	 dictrc \
 	 gitconfig \

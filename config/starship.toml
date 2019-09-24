@@ -6,5 +6,11 @@ disabled = true
 [cmd_duration]
 disabled = true
 
+[directory]
+truncate_to_repo = true
+
 [time]
+disabled = true
+
+[golang]
 disabled = true
