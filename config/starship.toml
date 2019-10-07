@@ -9,8 +9,11 @@ disabled = true
 [directory]
 truncate_to_repo = true
 
-[time]
+[golang]
 disabled = true
 
-[golang]
+[kubernetes]
+disabled = false
+
+[time]
 disabled = true
