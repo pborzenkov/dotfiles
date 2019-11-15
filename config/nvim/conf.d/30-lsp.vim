@@ -7,6 +7,7 @@ let g:LanguageClient_serverCommands = {
       \ 'go': ['gopls'],
       \ 'cpp': ['clangd', '-background-index'],
       \ 'c': ['clangd', '-background-index'],
+      \ 'python': ['pyls'],
       \ }
 
 let g:LanguageClient_virtualTextPrefix = "    •••➜ "
